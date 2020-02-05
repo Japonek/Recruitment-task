@@ -1,0 +1,1022 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<link type="text/css" rel="stylesheet" href="styles/reset.css"
+			media="all" />
+			<link type="text/css" rel="stylesheet" href="styles/view.css"
+			media="all" />
+			<link type="text/css" rel="stylesheet" href="styles/print.css"
+			media="print" />
+							<script type="text/javascript" src="js/jquery.js"></script>
+				<script type="text/javascript" src="js/highcharts.js"></script>
+			</head>
+<body style="min-width: 960px">
+<div id="content">
+<div id="header">
+<h1>Status Tops (Cases) 2/3/2020</h1>
+<p class="comment bottom">Project: FitBit-Test<br />By Igor Kłusak, 2/3/2020 9:32 AM</p>
+</div>
+										
+<script type="text/javascript">
+$(function () {
+	$(document).ready(function() {
+		Highcharts.setOptions({
+			chart: {
+				style: {
+					fontSize: '14px',
+					fontFamily: 'Barlow, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;'
+				}
+			},
+			title: {
+				useHTML: true,
+				style: {
+					fontSize: '15px'
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			xAxis: {
+				gridLineColor: '#d2e2ed',
+				gridLineWidth: 0,
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				labels: {
+					useHTML: true,
+					style: {
+						fontSize: '14px'
+					}
+				}
+			},
+			yAxis: {
+				gridLineColor: '#d2e2ed',
+				gridLineWidth: 1,
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				labels: {
+					useHTML: true,
+					style: {
+						fontSize: '14px'
+					}
+				}
+			},
+			plotOptions: {
+				series: {
+					animation: false,
+					shadow: false,
+					lineWidth: 2,
+					marker: {
+						enabled: false
+					},
+					events: {
+						legendItemClick: function () 
+						{
+							return false; 
+						}
+					},
+					states: {
+						hover: {
+							enabled: false
+						}
+					}
+				},
+				pie: {
+					showInLegend: true,
+					dataLabels: {
+						enabled: true,
+						color: '#000000',
+						connectorColor: '#000000',
+						distance: 20,
+						formatter: function() {
+							return Math.round(this.percentage) +' %';
+						}
+					},
+					point: {
+						events: {
+							legendItemClick: function () 
+							{
+								return false; 
+							}
+						}
+					},
+					states: {
+						hover: {
+							enabled: false
+						}
+					}
+				}
+			},
+			tooltip: {
+				enabled: true,
+				useHTML: true,
+				style: {
+					padding: '4px',
+					fontSize: '14px'
+				}
+			},
+			legend: {
+				useHTML: true,
+				itemStyle: {
+					fontSize: '14px',
+					cursor: 'default'
+				}
+			}
+		});
+	});
+});
+</script>
+
+<div class="chartContainer">
+	<div id="chart0" style="height: 250px;"></div>
+</div>
+
+
+<script type="text/javascript">
+var chart_bar;
+
+function beforePrint()
+{
+	chart_bar.setSize(900, 250, false);
+	$('#chart0').css('width', '900px');
+}
+
+function afterPrint()
+{
+	$('#chart0').css('width', '');
+	var options = chart_bar.options;
+	chart_bar.destroy();
+	chart_bar = new Highcharts.Chart(options);
+}
+
+$(function () {
+	$(document).ready(function() {
+		chart_bar = new Highcharts.Chart({
+			chart: {
+				renderTo: 'chart0',
+				type: 'bar'
+			},
+			title: {
+				text: 'Status Counts'
+			},
+			xAxis: {
+				categories: [''],
+				title: {
+					text: null
+				}
+			},
+			yAxis: {
+				min: 0,
+				title: null,
+				labels: {
+					overflow: 'justify'
+				},
+				allowDecimals: false
+			},
+			tooltip: {
+				formatter: function() {
+					return this.series.name +': '+ this.y;
+				}
+			},
+			legend: {
+				reversed: true	
+			},
+			plotOptions: {
+				bar: {
+					dataLabels: {
+						enabled: true
+					},
+									}
+			},
+									series: [
+							{
+				name: 'Failed',
+				data: [1],
+				color: '#a9093a',
+							},
+							{
+				name: 'Retest',
+				data: [0],
+				color: '#b99109',
+							},
+							{
+				name: 'Untested',
+				data: [0],
+				color: '#737373',
+							},
+							{
+				name: 'Blocked',
+				data: [4],
+				color: '#474747',
+							},
+							{
+				name: 'Passed',
+				data: [31],
+				color: '#338a41',
+							},
+							]
+		});
+	});
+});
+</script>
+
+<h1 class="top"><img class="right noPrint" src="images/report-assets/help.svg" width="16" height="16" alt="" title="Shows the test runs used for collecting the status counts for the requested project and test suites." />Test Runs</h1>
+
+	
+
+
+	<div class="dateSection top">
+		<span class="title">Monday, February 03, 2020</span>
+	</div>
+	<table class="grid" style="margin-bottom: 2em">
+		<colgroup>
+			<col class="icon"></col>
+			<col></col>
+			<col style="width: 200px"></col>
+			<col style="width: 200px"></col>
+												<col class="percent"></col>
+								</colgroup>
+										<tr class="odd" id="run-16">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/16">Test Run 2/3/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent ">
+						<strong>60%</strong>	
+				</td>
+											</tr>
+								<tr class="even" id="run-15">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/15">Test Run 2/3/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+			</table>
+				<div class="dateSection ">
+		<span class="title">Sunday, February 02, 2020</span>
+	</div>
+	<table class="grid" style="margin-bottom: 2em">
+		<colgroup>
+			<col class="icon"></col>
+			<col></col>
+			<col style="width: 200px"></col>
+			<col style="width: 200px"></col>
+												<col class="percent"></col>
+								</colgroup>
+										<tr class="odd" id="run-14">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/14">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent ">
+						<strong>33%</strong>	
+				</td>
+											</tr>
+								<tr class="even" id="run-13">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/13">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+								<tr class="odd" id="run-12">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/12">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+								<tr class="even" id="run-11">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/11">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+								<tr class="odd" id="run-10">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/10">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+								<tr class="even" id="run-9">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/9">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+								<tr class="odd" id="run-8">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/8">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+											</tr>
+								<tr class="even" id="run-7">
+				<td class="icon">
+										<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+									</td>
+				<td>
+						
+												<a target="_top" href="https://japonek.testrail.io/index.php?/runs/view/7">Test Run 2/2/2020</a>
+														
+															
+				</td>
+				<td>
+									</td>
+				<td>
+									</td>
+																<td class="secondary percent ">
+						<strong>91%</strong>	
+				</td>
+											</tr>
+			</table>
+			
+	<p class="partial">
+		There are 4 more test runs that are not included.	</p>
+
+<h1><img class="right noPrint" src="images/report-assets/help.svg" width="16" height="16" alt="" title="Shows the test cases with the highest status counts for each status, for the requested project, test suites and test runs." />Statuses</h1>
+
+		<h2><div style="margin-right: 5px; float: left; height: 16px; width: 16px; border-radius: 8px; background: #338a41; color: #ffffff"></div>
+		Passed		<span class="secondary">(29)</span>
+	</h2>
+		
+
+<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+				<col style="width: 100px"></col>
+		<col style="width: 100px"></col>
+		<col style="width: 100px"></col>
+	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+			<th>Count</th>
+		<th>Percent</th>
+		<th>Total</th>
+	</tr>
+												<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/22">C22</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/22">Install app</a>
+				</td>
+									<td>2</td>
+				<td>
+									100%
+								</td>
+				<td>2</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/23">C23</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/23">Uninstall app</a>
+				</td>
+									<td>2</td>
+				<td>
+									100%
+								</td>
+				<td>2</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/1">C1</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/1">Log in (possitive)</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/2">C2</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/2">Opening an App</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/3">C3</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/3">Register New User (without Fitbit device)</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/4">C4</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/4">First Steps</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/5">C5</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/5">Setting weight goal</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/6">C6</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/6">Logout from app</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/7">C7</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/7">Forgot password</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/8">C8</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/8">Log in (negative)</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/9">C9</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/9">Gps connection</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/10">C10</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/10">Gps connection with changing location</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/11">C11</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/11">Access to exercise dashboard</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/12">C12</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/12">Units integrity test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/13">C13</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/13">Incoming call test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/14">C14</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/14">Alarm test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/15">C15</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/15">Background run test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/16">C16</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/16">Background turn off run test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/18">C18</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/18">Low battery test</a>
+				</td>
+									<td>1</td>
+				<td>
+									50%
+								</td>
+				<td>2</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/19">C19</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/19">Launch time test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/21">C21</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/21">Delete account</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/24">C24</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/24">Change email  test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/25">C25</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/25">Change password</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/26">C26</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/26">Water module test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/27">C27</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/27">Share module test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/28">C28</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/28">Food module test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/29">C29</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/29">Edit main dashboard</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/32">C32</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/32">Scan barcode</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/33">C33</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/33">Camera and profile picture test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+			</table>
+			<h2><div style="margin-right: 5px; float: left; height: 16px; width: 16px; border-radius: 8px; background: #474747; color: #ffffff"></div>
+		Blocked		<span class="secondary">(4)</span>
+	</h2>
+		
+
+<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+				<col style="width: 100px"></col>
+		<col style="width: 100px"></col>
+		<col style="width: 100px"></col>
+	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+			<th>Count</th>
+		<th>Percent</th>
+		<th>Total</th>
+	</tr>
+												<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/17">C17</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/17">Change screen orientation test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/18">C18</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/18">Low battery test</a>
+				</td>
+									<td>1</td>
+				<td>
+									50%
+								</td>
+				<td>2</td>
+			</tr>
+													<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/20">C20</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/20">Memory Consumption test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+													<tr class="row even">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/31">C31</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/31">Message test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+			</table>
+			<h2><div style="margin-right: 5px; float: left; height: 16px; width: 16px; border-radius: 8px; background: #737373; color: #ffffff"></div>
+		Untested		<span class="secondary">(0)</span>
+	</h2>
+		<p>No test cases found with this status.</p>
+		<h2><div style="margin-right: 5px; float: left; height: 16px; width: 16px; border-radius: 8px; background: #b99109; color: #ffffff"></div>
+		Retest		<span class="secondary">(0)</span>
+	</h2>
+		<p>No test cases found with this status.</p>
+		<h2><div style="margin-right: 5px; float: left; height: 16px; width: 16px; border-radius: 8px; background: #a9093a; color: #ffffff"></div>
+		Failed		<span class="secondary">(1)</span>
+	</h2>
+		
+
+<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+				<col style="width: 100px"></col>
+		<col style="width: 100px"></col>
+		<col style="width: 100px"></col>
+	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+			<th>Count</th>
+		<th>Percent</th>
+		<th>Total</th>
+	</tr>
+												<tr class="row odd">
+								<td class="id">
+							<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/30">C30</a>
+					</td>
+					<td>
+					<a target="_top" href="https://japonek.testrail.io/index.php?/cases/view/30">Add friend test</a>
+				</td>
+									<td>1</td>
+				<td>
+									100%
+								</td>
+				<td>1</td>
+			</tr>
+			</table>
+	
+<div id="footer">
+	<p class="comment bottom">Generated with TestRail <a target="_top" href="http://www.gurock.com/testrail/">test management</a> software &ndash; 6.1.1.1020<br />
+		Report: Status Tops (Cases), by Gurock Software (Version 1)</p>
+</div>
+
+<!--
+{
+	"statuses_include":"1",
+	"statuses_ids":null,
+	"results_include":"1",
+	"runs_suites_include":"1",
+	"runs_suites_ids":null,
+	"runs_filters":null,
+	"runs_include":"1",
+	"runs_ids":null,
+	"runs_sections_include":"1",
+	"runs_sections_ids":null,
+	"runs_limit":10,
+	"cases_columns":{
+	"cases:id":75,
+	"cases:title":0
+},
+	"cases_limit":100,
+	"content_hide_links":false
+}-->
+<!--
+{
+	"name":"Status Tops (Cases) %date%",
+	"description":null,
+	"access":"1",
+	"schedule_now":true,
+	"schedule_on_demand_via_api":false,
+	"schedule_later":false,
+	"schedule_interval":"1",
+	"schedule_weekday":1,
+	"schedule_day":1,
+	"schedule_hour":8,
+	"notify_user":false,
+	"notify_link":false,
+	"notify_link_recipients":null,
+	"notify_attachment":false,
+	"notify_attachment_recipients":"person1@example.com\r\nperson2@example.com",
+	"notify_attachment_html_format":false,
+	"notify_attachment_pdf_format":false
+}-->
+
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+	if (parent && parent.showReport)
+	{
+		parent.showReport();
+	}
+});
+</script>
+
+</body>
+</html>
